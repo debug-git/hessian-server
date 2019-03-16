@@ -33,14 +33,13 @@ public class Test {
             executors.submit(() -> {
                 for (int j = 0; j < forNum; j++) {
                     System.out.println(Thread.currentThread().getName() + "开始");
-                    int k = 0;
-//                    do {
-                        k = userService.kkk();
-//                    }while (k < 1);
+                    //在此方法内使用synchronized同步锁
+                    int k = userService.kkk();
                     System.out.println(Thread.currentThread().getName() + "结束");
                 }
             });
         }
+        //等待线程池内所有线程都执行完毕
         while (executors.getCompletedTaskCount() < threadCount){
             try {
                 Thread.sleep(50);
