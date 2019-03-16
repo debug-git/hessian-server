@@ -4,19 +4,29 @@
 
     <!-- 通用查询结果列-->
     <sql id="Base_Column_List">
-        userId, userName, password,phone
+        userId, userName, password,phone,modifyTime,`count`,`version`
     </sql>
 
     <resultMap id="baseResultMap" type="com.example.spring_boot_demo.pojo.User">
-        <result column="userId" property="userId" javaType="java.lang.Integer"></result>
-        <result column="userName" property="userName" javaType="java.lang.String"></result>
-        <result column="password" property="password" javaType="java.lang.String"></result>
-        <result column="phone" property="phone" javaType="java.lang.String"></result>
-        <result column="modifyTime" property="modifyTime" javaType="java.lang.String"></result>
+        <id column="userId" property="userId" javaType="java.lang.Integer"/>
+        <result column="userName" property="userName" javaType="java.lang.String"/>
+        <result column="password" property="password" javaType="java.lang.String"/>
+        <result column="phone" property="phone" javaType="java.lang.String"/>
+        <result column="modifyTime" property="modifyTime" javaType="java.time.LocalDateTime"/>
+        <result column="count" property="count" javaType="java.lang.Integer"/>
+        <result column="version" property="version" javaType="java.lang.Integer"/>
     </resultMap>
 
     <select id="selectUserList" resultMap="baseResultMap" >
-        SELECT <include refid="Base_Column_List"/> FROM `user`
+        SELECT <include refid="Base_Column_List"/> FROM `user2`
     </select>
 
+    <select id="selectById" resultType="com.example.spring_boot_demo.pojo.User" >
+        SELECT <include refid="Base_Column_List"/> FROM `user2` where userId = #{userId}
+    </select>
+
+    <update id="updateVersionById" parameterType="com.example.spring_boot_demo.pojo.User">
+      update `user2` u set u.`count` = #{count},u.version= #{version} + 1
+      where userId = #{userId} and u.version = #{version}
+    </update>
 </mapper>

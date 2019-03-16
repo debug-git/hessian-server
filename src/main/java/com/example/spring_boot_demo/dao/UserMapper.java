@@ -8,4 +8,8 @@ import java.util.List;
 public interface UserMapper{
 
     List<User> selectUserList();
+
+    int updateVersionById(User user);
+
+    User selectById(Integer userId);
 }

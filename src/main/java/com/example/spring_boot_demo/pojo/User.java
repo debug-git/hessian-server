@@ -1,10 +1,6 @@
 package com.example.spring_boot_demo.pojo;
 
-//import com.baomidou.mybatisplus.annotation.TableField;
-//import com.baomidou.mybatisplus.annotation.TableName;
-//import org.springframework.context.annotation.Bean;
-
-import java.util.Date;
+import java.time.LocalDateTime;
 
 // @TableName("user")
 public class User {
@@ -12,23 +8,9 @@ public class User {
     private String userName;
     private String password;
     private String phone;
-    private Date modifyTime;
-
-    //该属性在表中不存在
-//    @TableField(exist = false)
-    private String state;
-
-    public User(Integer userId, String userName, String password, String phone, String state) {
-        this.userId = userId;
-        this.userName = userName;
-        this.password = password;
-        this.phone = phone;
-        this.state = state;
-    }
-
-    public User() {
-        System.out.println("父类默认构造方法");
-    }
+    private LocalDateTime modifyTime;
+    private Integer count;
+    private Integer version;
 
     public Integer getUserId() {
         return userId;
@@ -62,12 +44,28 @@ public class User {
         this.phone = phone;
     }
 
-    public Date getModifyTime() {
+    public LocalDateTime getModifyTime() {
         return modifyTime;
     }
 
-    public void setModifyTime(Date modifyTime) {
+    public void setModifyTime(LocalDateTime modifyTime) {
         this.modifyTime = modifyTime;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     @Override
@@ -78,7 +76,8 @@ public class User {
                 ", password='" + password + '\'' +
                 ", phone='" + phone + '\'' +
                 ", modifyTime=" + modifyTime +
-                ", state='" + state + '\'' +
+                ", count=" + count +
+                ", version=" + version +
                 '}';
     }
 }

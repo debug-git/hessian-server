@@ -69,8 +69,11 @@ public class HelloWorldController {
         return f;
     }
 
-//    public static void main(String[] args) {
-//        Class t = HelloWorldController.class;
-//        System.out.println(t.isAnnotationPresent(RestController.class));
+//    @RequestMapping("/addVersion")
+//    public Integer addVersion(Model model){
+//        Integer i = userService.addVersionById(1);
+//        System.out.println("执行完了...");
+//        return i;
 //    }
+
 }

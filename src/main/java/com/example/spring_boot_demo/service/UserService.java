@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface UserService {
     List<User> selectUserPage();
+
+    int addVersionById(User user);
+
+    int kkk();
 }
