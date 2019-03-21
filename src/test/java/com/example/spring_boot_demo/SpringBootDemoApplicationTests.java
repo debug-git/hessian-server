@@ -4,7 +4,7 @@ package com.example.spring_boot_demo;
 //@SpringBootTest
 public class SpringBootDemoApplicationTests {
 
-//    @Test
+//    @TestLock
 //    public void contextLoads() {
 //    }
 

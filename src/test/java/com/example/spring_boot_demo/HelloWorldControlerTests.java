@@ -9,7 +9,7 @@ public class HelloWorldControlerTests {
 //    public void setUp() throws Exception {
 //        mvc = MockMvcBuilders.standaloneSetup(new HelloWorldController()).build();
 //    }
-//    @Test
+//    @TestLock
 //    public void getHello() throws Exception {
 //        mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
 //                .andExpect(MockMvcResultMatchers.status().isOk())

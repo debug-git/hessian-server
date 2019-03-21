@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.LongAdder;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Test {
+public class TestLock {
     @Autowired
     private UserMapper userMapper;
     @Autowired
